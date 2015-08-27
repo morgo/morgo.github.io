@@ -110,7 +110,7 @@ layout: default
  <li>New query hints using comment-like <tt>/*+ */</tt> syntax [<a href="http://mysqlserverteam.com/new-optimizer-hints-in-mysql/">1</a>]</li>
  <li>Server-side query rewrite framework [<a href="http://mysqlserverteam.com/write-yourself-a-query-rewrite-plugin-part-1/">1</a>]</li>
  <li><tt>ONLY_FULL_GROUP_BY</tt> now more standards compliant [<a href="http://mysqlserverteam.com/mysql-5-7-only_full_group_by-improved-recognizing-functional-dependencies-enabled-by-default/">1</a>]</li>
- <li>Support for gb18030 character set</li>
+ <li>Support for gb18030 character set [<a href="https://dev.mysql.com/worklog/task/?id=4024">1</a>]</li>
  <li>Defaults change: <tt>internal_tmp_disk_storage_engine=INNODB</tt> [<a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_internal_tmp_disk_storage_engine">1</a>]</li>
  <li>Defaults change: <tt>eq_range_index_dive_limit=200</tt></li>
  <li>Defaults change: <tt>sql_mode=ONLY_FULL_GROUP_BY,
@@ -193,7 +193,7 @@ layout: default
 <div class="dual-column">
 <ol>
  <li>Multiple triggers per event per table [<a href="https://dev.mysql.com/worklog/task/?id=3253">1</a>]</li>
- <li>BEFORE Triggers are not processed for NOT NULL columns [<a href="https://dev.mysql.com/worklog/task/?id=6030">1</a>]</li>
+ <li><tt>BEFORE</tt> Triggers are not processed for <tt>NOT NULL</tt> columns [<a href="https://dev.mysql.com/worklog/task/?id=6030">1</a>]</li>
 </ol>
 </div>
 
@@ -224,7 +224,10 @@ layout: default
 <ol>
  <li>Native JSON Data Type [<a href="https://dev.mysql.com/doc/refman/5.7/en/json.html">1</a>]</li>
  <li>JSON Comparator</li>
- <li>Several (20) new functions for manipulating JSON data [<a href="https://dev.mysql.com/doc/refman/5.7/en/json-functions.html">1</a>]</li>
+ <li>3 new functions that create JSON values [<a href="https://dev.mysql.com/doc/refman/5.7/en/json-creation-functions.html">1</a>]</li>
+ <li>5 new functions that search JSON values [<a href="https://dev.mysql.com/doc/refman/5.7/en/json-search-functions.html">1</a>]</li>
+ <li>8 new functions that modify JSON values [<a href="https://dev.mysql.com/doc/refman/5.7/en/json-modification-functions.html">1</a>]</li>
+ <li>4 new functions that return JSON value attributes [<a href="https://dev.mysql.com/doc/refman/5.7/en/json-attribute-functions.html">1</a>]</li> 
 </li>
 </ol>
 </div>
