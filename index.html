@@ -15,15 +15,15 @@ layout: default
 <ol>
  <li>Multi source replication [<a href="https://dev.mysql.com/doc/refman/5.7/en/replication-multi-source-overview.html">1</a>]</li>
  <li>Online GTID migration path [<a href="http://mysqlhighavailability.com/enabling-gtids-without-downtime-in-mysql-5-7-6/">1</a> <a href="http://dev.mysql.com/doc/refman/5.7/en/replication-mode-change-online-enable-gtids.html">2</a> <a href="http://dev.mysql.com/worklog/task/?id=7083">3</a>]</li>
- <li>Improved semi-sync performance [<a href="http://my-replication-life.blogspot.ca/2014/03/faster-semisync-replication.html">1</a> <a href="WL#6630">2</a>]</li>
+ <li>Improved semi-sync performance [<a href="http://my-replication-life.blogspot.ca/2014/03/faster-semisync-replication.html">1</a> <a href="http://dev.mysql.com/worklog/task/?id=6630">2</a>]</li>
  <li>Loss-less semi-sync replication [<a href="http://my-replication-life.blogspot.ca/2013/09/loss-less-semi-synchronous-replication.html">1</a> <a href="http://dev.mysql.com/worklog/task/?id=6355">2</a>]</li>
  <li>Semi-sync can now wait for a configurable number of slaves [<a href="http://my-replication-life.blogspot.ca/2013/12/enforced-semi-synchronous-replication.html">1</a>]</li>
  <li>Intra-schema parallel replication [<a href="https://dev.mysql.com/doc/refman/5.7/en/replication-options-slave.html#option_mysqld_slave-parallel-type">1</a>]</li>
  <li>Ability to tune group commit via <tt>binlog_group_commit_sync_delay</tt> and <tt>binlog_group_commit_sync_no_delay_count</tt> options. [<a href="http://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_group_commit_sync_delay">1</a> <a href="http://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_group_commit_sync_no_delay_count">2</a>]</li>
  <li>Non-blocking <tt>SHOW SLAVE STATUS</tt> [<a href="https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html">1</a> <a href="http://dev.mysql.com/worklog/task/?id=6402">2</a>]</li>
  <li>Online <tt>CHANGE REPLICATION FILTER</tt> [<a href="https://dev.mysql.com/doc/refman/5.7/en/change-replication-filter.html">1</a>]</li>
- <li>Online <tt>CHANGE MASTER TO</tt> without stopping SQL thread [<a href="WL#6120">1</a>]</li>
- <li>Improved master dump thread performance [<a href="http://my-replication-life.blogspot.ca/2013/09/dump-thread-enhancement.html">1</a> <a href="WL#7299">2</a>]</li>
+ <li>Online <tt>CHANGE MASTER TO</tt> without stopping SQL thread [<a href="http://dev.mysql.com/worklog/task/?id=6120">1</a>]</li>
+ <li>Improved master dump thread performance [<a href="http://my-replication-life.blogspot.ca/2013/09/dump-thread-enhancement.html">1</a> <a href="http://dev.mysql.com/worklog/task/?id=7299">2</a>]</li>
  <li>Multi-threaded slave ordered commits (Sequential Consistency) [<a href="http://dev.mysql.com/worklog/task/?id=6813">1</a>]</li>
  <li>Support <tt>SLAVE_TRANSACTION_RETRIES</tt> in multi-threaded slave mode [<a href="http://dev.mysql.com/worklog/task/?id=6964">1</a>]</li>
  <li>A <tt>WAIT_FOR_EXECUTED_GTID_SET</tt> function has been introduced [<a href="http://dev.mysql.com/worklog/task/?id=7796">1</a>]</li>
@@ -123,9 +123,9 @@ layout: default
 <h3>Security</h3>
 <div class="dual-column">
 <ol>
- <li>Username size increased to 32 characters [<a href="WL#2284">1</a>]</li>
- <li>Support for <tt>IF [NOT] EXISTS</tt> clause in <tt>CREATE/DROP USER</tt> [<a href="WL#8540">1</a>]</li>
- <li>Server option to require secure transport [<a href="WL#7709">1</a>]</li>
+ <li>Username size increased to 32 characters [<a href="http://dev.mysql.com/worklog/task/?id=2284">1</a>]</li>
+ <li>Support for <tt>IF [NOT] EXISTS</tt> clause in <tt>CREATE/DROP USER</tt> [<a href="http://dev.mysql.com/worklog/task/?id=8540">1</a>]</li>
+ <li>Server option to require secure transport [<a href="http://dev.mysql.com/worklog/task/?id=7709">1</a>]</li>
  <li>Support for multiple AES Encryption modes</li>
  <li>Support to <tt>LOCK/UNLOCK</tt> user accounts</li>
  <li>Support for password expiry</li>
@@ -138,7 +138,7 @@ layout: default
  <li><tt>SET password=''</tt> now accepts a password instead of hash</li>
  <li>Server now generates SSL keys by default</li>
  <li>Insecure <tt>old_password</tt> hash removed</li>
- <li>Ability to create utility users for stored programs that can not login [<a href="mysql_no_login authentication plugin">1</a>]</li>
+ <li>Ability to create utility users for stored programs that can not login [<a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-no-login-plugin.html">1</a>]</li>
 </ol>
 </div>
 <!--  and Information Schema -->
@@ -171,10 +171,10 @@ layout: default
 <ol>
  <li>InnoDB supports indexing of spatial datatypes [<a href="https://dev.mysql.com/doc/refman/5.7/en/creating-spatial-indexes.html">1</a>]</li>
  <li>GIS now based on Boost Geometry [<a href="http://mysqlserverteam.com/why-boost-geometry-in-mysql/">1</a>]</li>
- <li>Expanded spatial relation check functions [<a href="WL#7220">1</a>]</li>
- <li>Expanded geometry set operations [<a href="WL#7221">1</a>]</li>
- <li>Expanded spatial analysis functions [<a href="WL#7236">1</a>]</li>
- <li>WKB Geometry Container [<a href="WL#7280">1</a>]</li>
+ <li>Expanded spatial relation check functions [<a href="http://dev.mysql.com/worklog/task/?id=7220">1</a>]</li>
+ <li>Expanded geometry set operations [<a href="http://dev.mysql.com/worklog/task/?id=7221">1</a>]</li>
+ <li>Expanded spatial analysis functions [<a href="http://dev.mysql.com/worklog/task/?id=7236">1</a>]</li>
+ <li>WKB Geometry Container [<a href="http://dev.mysql.com/worklog/task/?id=7280">1</a>]</li>
  <li>Geohash functions [<a href="https://dev.mysql.com/doc/refman/5.7/en/spatial-geohash-functions.html">1</a>]</li>
  <li>GeoJSON functions [<a href="https://dev.mysql.com/doc/refman/5.7/en/spatial-geojson-functions.html">1</a>]</li>
 
