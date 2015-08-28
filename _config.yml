@@ -3,7 +3,7 @@ title: Complete list of new features in MySQL 5.7
 description: > # this means to ignore newlines until "baseurl:"
  Every new feature in MySQL 5.7 with links for more information.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "http://www.thecompletelistoffeatures.com" # the base hostname & protocol for your site
 twitter_username: morgo
 github_username:  morgo
 

@@ -51,22 +51,8 @@
         text-align: right;
 
         .menu-icon {
-            display: block;
-            float: right;
-            width: 36px;
-            height: 26px;
-            line-height: 0;
-            padding-top: 10px;
-            text-align: center;
-
-            > svg {
-                width: 18px;
-                height: 15px;
-
-                path {
-                    fill: $grey-color-dark;
-                }
-            }
+        	display: none;
+        	
         }
 
         .trigger {
@@ -135,6 +121,12 @@
     width:         calc(45% - (#{$spacing-unit} / 2));
 }
 
+ .dual-column {
+     -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+ }
+
 @include media-query($on-laptop) {
     .footer-col-1,
     .footer-col-2 {
@@ -154,6 +146,11 @@
         width: -webkit-calc(100% - (#{$spacing-unit} / 2));
         width:         calc(100% - (#{$spacing-unit} / 2));
     }
+ .dual-column {
+     -webkit-column-count: 1; /* Chrome, Safari, Opera */
+    -moz-column-count: 1; /* Firefox */
+    column-count: 1;
+ }
 }
 
 
