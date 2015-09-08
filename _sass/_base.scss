@@ -235,3 +235,12 @@ pre {
  padding-bottom: 25px;
  padding-top: 25px;
 }
+
+.translations {
+ float: right; list-style: none;
+ margin-top: 10px;
+}
+
+.translations li {
+display: inline;
+}
