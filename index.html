@@ -32,7 +32,7 @@ title: Complete list of new features in MySQL 5.7
  <li class="rt">Improved master dump thread performance [<a href="http://my-replication-life.blogspot.ca/2013/09/dump-thread-enhancement.html">1</a> <a href="http://dev.mysql.com/worklog/task/?id=7299">2</a>]</li>
  <li class="rt">Multi-threaded slave ordered commits (Sequential Consistency) [<a href="http://dev.mysql.com/worklog/task/?id=6813">1</a>]</li>
  <li class="rt">Support <tt>SLAVE_TRANSACTION_RETRIES</tt> in multi-threaded slave mode [<a href="http://dev.mysql.com/worklog/task/?id=6964">1</a>]</li>
- <li class="nd">A <tt>WAIT_FOR_EXECUTED_GTID_SET</tt> function has been introduced [<a href="http://dev.mysql.com/worklog/task/?id=7796">1</a>]</li>
+ <li class="nd">A <tt>WAIT_FOR_EXECUTED_GTID_SET</tt> function has been introduced [<a href="http://dev.mysql.com/worklog/task/?id=7796">1</a> <a href="https://dev.mysql.com/doc/refman/5.7/en/gtid-functions.html#function_wait-for-executed-gtid-set">2</a>]</li>
  <li class="rt">Optimize GTIDs for Passive Slaves [<a href="https://dev.mysql.com/doc/refman/5.7/en/replication-options-gtids.html#sysvar_executed_gtids_compression_period">1</a> <a href="http://dev.mysql.com/worklog/task/?id=6559">2</a>]</li>
  <li class="id">Defaults change: <tt>binlog_format=ROW</tt></li>
  <li class="id">Defaults change: <tt>sync_binlog=1</tt></li>
@@ -143,7 +143,7 @@ title: Complete list of new features in MySQL 5.7
  <li class="id">New <tt>ALTER USER</tt> command</li>
  <li class="id"><tt>SET password=''</tt> now accepts a password instead of hash</li>
  <li class="id">Server now generates SSL keys by default</li>
- <li class="id">Insecure <tt>old_password</tt> hash removed</li>
+ <li class="id">Insecure <tt>old_password</tt> hash removed [<a href="https://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html#function_old-password">1</a>]</li>
  <li class="rt">Ability to create utility users for stored programs that can not login [<a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-no-login-plugin.html">1</a>]</li>
 </ol>
 </div>
@@ -215,7 +215,7 @@ title: Complete list of new features in MySQL 5.7
 <h3>SYS (new)</h3>
 <div class="dual-column">
 <ol>
- <li class="id"><tt>SYS</tt> schema bundled by default</li>
+ <li class="id"><tt>SYS</tt> schema bundled by default [<a href="https://dev.mysql.com/worklog/task/?id=8159">1</a> <a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-upgrade.html#option_mysql_upgrade_skip-sys-schema">2</a>]</li>
  <li class="id">100 new views, 21 new stored functions and 26 new stored procedures to help understand and interact with Performance Schema and Information Schema [<a href="http://www.github.com/markleith/mysql-sys">1</a>]</li>
 </ol>
 </div>
@@ -238,8 +238,8 @@ title: Complete list of new features in MySQL 5.7
 <ol>
  <li class="id">New <tt>mysqlpump</tt> utility [<a href="https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html">1</a>]</li>
  <li class="rt">The <tt>mysql</tt> client now supports <tt>Ctrl+C</tt> to clear statement buffer</li>
- <li class="rt"><tt>rewrite-db</tt> option added to mysqlbinlog</li>
- <li class="rt">New utility to help setup SSL</li>
+ <li class="rt"><tt>rewrite-db</tt> option added to mysqlbinlog [<a href="http://dev.mysql.com/worklog/task/?id=6404">1</a> <a href="https://dev.mysql.com/doc/refman/5.7/en/mysqlbinlog.html#option_mysqlbinlog_rewrite-db">2</a>]</li>
+ <li class="rt">New <tt>mysql_ssl_rsa_setup</tt> utility to help set up SSL [<a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-ssl-rsa-setup.html">1</a>]</li>
  <li class="rt">SSL support added to mysqlbinlog</li>
  <li class="rt">Idempotent mode added to mysqlbinlog</li>
  <li class="rt">Client <tt>--ssl</tt> changed to now force SSL</li>
@@ -257,15 +257,15 @@ title: Complete list of new features in MySQL 5.7
 <div class="dual-column">
 <ol>
 <li class="rt">Server new connection throughput improved considerably [<a href="http://dev.mysql.com/worklog/task/?id=6606">1</a>]</li>
- <li class="id"><tt>mysql_install_db</tt> replaced by <tt>mysqld --initialize</tt></li>
- <li class="rt">Native support for syslog</li>
+ <li class="id"><tt>mysql_install_db</tt> replaced by <tt>mysqld --initialize</tt> [<a href="https://dev.mysql.com/doc/refman/5.7/en/data-directory-initialization-mysqld.html">1</a>]</li>
+ <li class="rt">Native support for syslog [<a href="http://mysqlserverteam.com/logging-with-mysql-error-logging-to-syslog-eventlog/">1</a> <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_log_syslog">2</a>]</li>
  <li class="rt">Native support for systemd</li>
  <li class="nd"><tt>disabled_storage_engines</tt> option allows a block list of engines</li>
- <li class="id"><tt>SET GLOBAL offline_mode=1</tt> [<a href="http://dev.mysql.com/worklog/task/?id=3836">1</a>]</li>
+ <li class="id"><tt>SET GLOBAL offline_mode=1</tt> [<a href="http://dev.mysql.com/worklog/task/?id=3836">1</a> <a href="http://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_offline_mode">2</a>]</li>
  <li class="nd"><tt>super_read_only</tt> option [<a href="http://dev.mysql.com/worklog/task/?id=6799">1</a>]</li>
  <li class="rt">Detect transaction boundaries</li>
  <li class="rt">Server version token and check </li>
- <li class="nd"><tt>SELECT GET_LOCK()</tt> can now acquire multiple locks [<a href="https://dev.mysql.com/worklog/task/?id=1159">1</a>]</li>
+ <li class="nd"><tt>SELECT GET_LOCK()</tt> can now acquire multiple locks [<a href="https://dev.mysql.com/worklog/task/?id=1159">1</a> <a href="https://dev.mysql.com/doc/refman/5.7/en/miscellaneous-functions.html#function_get-lock">2</a>]</li>
  <li class="nd">Configurable maximum statement execution time on a global and per query basis [<a href="http://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_execution_time">1</a> <a href="http://dev.mysql.com/doc/refman/5.7/en/optimizer-hints.html#optimizer-hints-execution-time">2</a>]</li>
  <li class="rt">Better handling of connection id rollover</li>
  <li class="rt">DTrace support [<a href="http://dev.mysql.com/worklog/task/?id=7894">1</a>]</li>
