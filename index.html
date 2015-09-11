@@ -23,13 +23,13 @@ title: Complete list of new features in MySQL 5.7
  <li class="nd">Online GTID migration path [<a href="http://mysqlhighavailability.com/enabling-gtids-without-downtime-in-mysql-5-7-6/">1</a> <a href="http://dev.mysql.com/doc/refman/5.7/en/replication-mode-change-online-enable-gtids.html">2</a> <a href="http://dev.mysql.com/worklog/task/?id=7083">3</a>]</li>
  <li class="nd">Improved semi-sync performance [<a href="http://my-replication-life.blogspot.ca/2014/03/faster-semisync-replication.html">1</a> <a href="http://dev.mysql.com/worklog/task/?id=6630">2</a>]</li>
  <li class="rt">Loss-less semi-sync replication [<a href="http://my-replication-life.blogspot.ca/2013/09/loss-less-semi-synchronous-replication.html">1</a> <a href="http://dev.mysql.com/worklog/task/?id=6355">2</a>]</li>
- <li class="rt">Semi-sync can now wait for a configurable number of slaves [<a href="http://my-replication-life.blogspot.ca/2013/12/enforced-semi-synchronous-replication.html">1</a>]</li>
+ <li class="nd">Semi-sync can now wait for a configurable number of slaves [<a href="http://my-replication-life.blogspot.ca/2013/12/enforced-semi-synchronous-replication.html">1</a>]</li>
  <li class="nd">Intra-schema parallel replication [<a href="https://dev.mysql.com/doc/refman/5.7/en/replication-options-slave.html#option_mysqld_slave-parallel-type">1</a>]</li>
  <li class="nd">Ability to tune group commit via <tt>binlog_group_commit_sync_delay</tt> and <tt>binlog_group_commit_sync_no_delay_count</tt> options. [<a href="http://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_group_commit_sync_delay">1</a> <a href="http://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_group_commit_sync_no_delay_count">2</a>]</li>
  <li class="rt">Non-blocking <tt>SHOW SLAVE STATUS</tt> [<a href="https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html">1</a> <a href="http://dev.mysql.com/worklog/task/?id=6402">2</a>]</li>
  <li class="rt">Online <tt>CHANGE REPLICATION FILTER</tt> [<a href="https://dev.mysql.com/doc/refman/5.7/en/change-replication-filter.html">1</a>]</li>
  <li class="rt">Online <tt>CHANGE MASTER TO</tt> without stopping SQL thread [<a href="http://dev.mysql.com/worklog/task/?id=6120">1</a>]</li>
- <li class="rt">Improved master dump thread performance [<a href="http://my-replication-life.blogspot.ca/2013/09/dump-thread-enhancement.html">1</a> <a href="http://dev.mysql.com/worklog/task/?id=7299">2</a>]</li>
+ <li class="nd">Improved master dump thread performance [<a href="http://my-replication-life.blogspot.ca/2013/09/dump-thread-enhancement.html">1</a> <a href="http://dev.mysql.com/worklog/task/?id=7299">2</a>]</li>
  <li class="rt">Multi-threaded slave ordered commits (Sequential Consistency) [<a href="http://dev.mysql.com/worklog/task/?id=6813">1</a>]</li>
  <li class="rt">Support <tt>SLAVE_TRANSACTION_RETRIES</tt> in multi-threaded slave mode [<a href="http://dev.mysql.com/worklog/task/?id=6964">1</a>]</li>
  <li class="nd">A <tt>WAIT_FOR_EXECUTED_GTID_SET</tt> function has been introduced [<a href="http://dev.mysql.com/worklog/task/?id=7796">1</a> <a href="https://dev.mysql.com/doc/refman/5.7/en/gtid-functions.html#function_wait-for-executed-gtid-set">2</a>]</li>
@@ -76,8 +76,11 @@ title: Complete list of new features in MySQL 5.7
  <li class="rt"><tt>Update_time</tt> meta data is now updated [<a href="http://dev.mysql.com/worklog/task/?id=6658">1</a>]</li>
  <li class="rt"><tt>TRUNCATE TABLE</tt> is now atomic [<a href="http://dev.mysql.com/worklog/task/?id=6501">1</a>]</li>
  <li class="id">Memcached API performance improvements [<a href="http://mysqlserverteam.com/mysql-5-7-3-deep-dive-into-1mil-qps-with-innodb-memcached/">1</a>]</li>
+ <li class="rt">Adaptive hash scalability improvements [<a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index_parts">1</a>]</li>
 <!-- <li class="rt">Support for High Priority Transactions?</li> -->
   <li class="rt">InnoDB now implements <tt>information_schema.files</tt> [<a href="http://dev.mysql.com/worklog/task/?id=7943">1</a>]</li>
+  <li class="id">Legacy InnoDB monitor tables have been removed or replaced by global configuration settings</li>
+  <li class="id">InnoDB default row format now configurable [<a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_default_row_format">1</a>]</li>
  <li class="id">Defaults change: <tt>innodb_file_format=Barracuda</tt></li>
  <li class="id">Defaults change: <tt>innodb_large_prefix=1</tt></li>
  <li class="id">Defaults change: <tt>innodb_page_cleaners=4</tt></li>
@@ -87,7 +90,7 @@ title: Complete list of new features in MySQL 5.7
  <li class="id">Defaults change: <tt>innodb_buffer_pool_dump_pct=25</tt></li> 
  <li class="id">Defaults change: <tt>innodb_strict_mode=1</tt></li>
  <li class="id">Defaults change: <tt>innodb_checksum_algorithm=crc32</tt></li>
-
+ <li class="id">Defaults change: <tt>innodb_default_row_format=DYNAMIC</tt></li>
 </ol>
 
 </div>
@@ -262,7 +265,7 @@ title: Complete list of new features in MySQL 5.7
  <li class="rt">Native support for systemd</li>
  <li class="nd"><tt>disabled_storage_engines</tt> option allows a block list of engines</li>
  <li class="id"><tt>SET GLOBAL offline_mode=1</tt> [<a href="http://dev.mysql.com/worklog/task/?id=3836">1</a> <a href="http://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_offline_mode">2</a>]</li>
- <li class="nd"><tt>super_read_only</tt> option [<a href="http://dev.mysql.com/worklog/task/?id=6799">1</a>]</li>
+ <li class="id"><tt>super_read_only</tt> option [<a href="http://dev.mysql.com/worklog/task/?id=6799">1</a>]</li>
  <li class="rt">Detect transaction boundaries</li>
  <li class="rt">Server version token and check </li>
  <li class="nd"><tt>SELECT GET_LOCK()</tt> can now acquire multiple locks [<a href="https://dev.mysql.com/worklog/task/?id=1159">1</a> <a href="https://dev.mysql.com/doc/refman/5.7/en/miscellaneous-functions.html#function_get-lock">2</a>]</li>
@@ -277,6 +280,11 @@ title: Complete list of new features in MySQL 5.7
  <li class="rt">Improved scalability of meta data locking</li> <!-- lock free hash, dml fast path-->
  <li class="id">Increased control over error log verbosity</li>
  <li class="rt">Stacked Diagnostic Areas</li>
+ <li class="nd">Removed support for custom atomics implementation</li>
+ <li class="id">Removed "unique option prefix support" from server and utilities, which allowed options to be configured using multiple names.</li>
+ <li class="id">Removed unsafe ALTER IGNORE TABLE functionality.  Syntax remains for compatibility</li>
+ <li class="id">Removed unsafe INSERT DELAYED functionality.  Syntax remains for compatibility</li>
+ <li class="id">Removal of ambiguous YEAR(2) datatype</li>
  <li class="rt">Defaults change: <tt>log_warnings=2</tt></li>
  <li class="id">Defaults change: <tt>table_open_cache_instances=1</tt></li>
 </li>
