@@ -179,7 +179,6 @@ title: Complete list of new features in MySQL 5.7
 
 <ol>
  <li class="rt">InnoDB supports indexing of spatial datatypes [<a href="https://dev.mysql.com/doc/refman/5.7/en/creating-spatial-indexes.html">1</a>]</li>
- <li class="rt">GIS now based on Boost Geometry [<a href="http://mysqlserverteam.com/why-boost-geometry-in-mysql/">1</a>]</li>
  <li class="rt">Expanded spatial relation check functions [<a href="http://dev.mysql.com/worklog/task/?id=7220">1</a>]</li>
  <li class="rt">Expanded geometry set operations [<a href="http://dev.mysql.com/worklog/task/?id=7221">1</a>]</li>
  <li class="rt">Expanded spatial analysis functions [<a href="http://dev.mysql.com/worklog/task/?id=7236">1</a>]</li>
@@ -253,8 +252,28 @@ title: Complete list of new features in MySQL 5.7
  <li class="rt">Client API method to reset connection</li>
 </ol>
 </div>
+
+<h3>libmysqlclient</h3>
+<div class="dual-column">
+<ol>
+<li>Restricted export functions to documented MySQL C API</li>
+<li>Added pkg-config support</li>
+<li>Removed <tt>_r</tt> symlinks</li>
+<li>Changed so version to 20 (from 18)</li>
+</ol>
+</div>
  
- 
+<h3>Building</h3>
+<div class="dual-column">
+<ol>
+ <li class="rt">Compiler switched to GCC on Solaris</li>
+ <li class="rt">MySQL now compiles with Bison 3 (* change also backported)</li>
+ <li class="rt">GIS now based on Boost Geometry [<a href="http://mysqlserverteam.com/why-boost-geometry-in-mysql/">1</a>]</li>
+ <li class="rt">CMake now used to compile on all platforms</li>
+ <li class="rt">Build support for gcc, clang and MS Studio</li>
+</div>
+
+
 <h3>Misc</h3>
 
 <div class="dual-column">
@@ -275,7 +294,6 @@ title: Complete list of new features in MySQL 5.7
  <li class="id">More consistent <tt>IGNORE</tt> clause and <tt>STRICT</tt> mode</li>
  <li class="nd">A number of tables in the mysql schema have moved from MyISAM to InnoDB</li>
  <li class="nd">Server error log format improved to be consistent</li>
- <li class="rt">Compiler switched to GCC on Solaris</li>
  <li class="rt">Extract query digest moved from performance_schema into the server directly</li>
  <li class="rt">Improved scalability of meta data locking</li> <!-- lock free hash, dml fast path-->
  <li class="id">Increased control over error log verbosity</li>
@@ -284,6 +302,7 @@ title: Complete list of new features in MySQL 5.7
  <li class="id">Removed "unique option prefix support" from server and utilities, which allowed options to be configured using multiple names.</li>
  <li class="id">Removed unsafe ALTER IGNORE TABLE functionality.  Syntax remains for compatibility</li>
  <li class="id">Removed unsafe INSERT DELAYED functionality.  Syntax remains for compatibility</li>
+ <li class="id">Removed of outdated sql-bench scripts in distributions</li>
  <li class="id">Removal of ambiguous YEAR(2) datatype</li>
  <li class="rt">Defaults change: <tt>log_warnings=2</tt></li>
  <li class="id">Defaults change: <tt>table_open_cache_instances=1</tt></li>
