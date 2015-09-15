@@ -103,7 +103,8 @@ title: Complete list of new features in MySQL 5.7
  <li class="id">Optimizer cost constants are now configurable on a global or per engine basis [<a href="https://dev.mysql.com/doc/refman/5.7/en/cost-model.html">1</a> <a href="http://mysqlserverteam.com/optimizer-cost-model-improvements-in-mysql-5-7-5-dmr/">2</a>]</li>
  <li class="id">Query parser has been refactored and improved [<a href="https://dev.mysql.com/worklog/task/?id=6707">1</a>]</li> 
  <li class="nd"><tt>EXPLAIN FOR CONNECTION</tt> [<a href="https://dev.mysql.com/doc/refman/5.7/en/explain-for-connection.html">1</a>]</li>
- <li class="zf"><tt>UNION ALL</tt> does not use a temporary table [<a href="https://dev.mysql.com/worklog/task/?id=1763">1</a>]</li>
+ <li class="zf"><tt>UNION ALL</tt> does not use a temporary table [<a href="https://dev.mysql.com/worklog/task/?id=1763">1</a> <a href="http://www.tocker.ca/2013/12/10/testing-the-union-all-optimization-in-mysql-5.7-dmr3.html
+">2</a> <a href="http://mysqlserverteam.com/state-of-the-union/">3</a> <a href="https://dev.mysql.com/doc/refman/5.7/en/union.html">4</a>]</li>
  <li class="id">Filesort is now optimized to pack values [<a href="http://mysqlserverteam.com/filesort-optimization-in-5-7-3-pack-values-in-the-sort-buffer/">1</a>]</li>
  <li class="nd">Subqueries in <tt>FROM</tt> clause handled same as a view [<a href="https://dev.mysql.com/doc/refman/5.7/en/subquery-optimization.html#derived-table-optimization">1</a>]</li>
  <li class="rt">Queries using row value constructors are now optimized [<a href="http://dev.mysql.com/doc/refman/5.7/en/range-optimization.html#row-constructor-range-optimization">1</a> <a href="http://dev.mysql.com/worklog/task/?id=7019">2</a>]</li>
@@ -179,14 +180,15 @@ title: Complete list of new features in MySQL 5.7
 
 <ol>
  <li class="rt">InnoDB supports indexing of spatial datatypes [<a href="https://dev.mysql.com/doc/refman/5.7/en/creating-spatial-indexes.html">1</a>]</li>
+ <li class="rt">Consistent naming scheme for GIS functions [<a href="http://mysqlserverteam.com/spring-cleaning-in-the-gis-namespace/">1</a>]</li>
  <li class="rt">Expanded spatial relation check functions [<a href="http://dev.mysql.com/worklog/task/?id=7220">1</a>]</li>
  <li class="rt">Expanded geometry set operations [<a href="http://dev.mysql.com/worklog/task/?id=7221">1</a>]</li>
  <li class="rt">Expanded spatial analysis functions [<a href="http://dev.mysql.com/worklog/task/?id=7236">1</a>]</li>
  <li class="rt">WKB Geometry Container [<a href="http://dev.mysql.com/worklog/task/?id=7280">1</a>]</li>
- <li class="rt">Geohash functions [<a href="https://dev.mysql.com/doc/refman/5.7/en/spatial-geohash-functions.html">1</a>]</li>
- <li class="rt">GeoJSON functions [<a href="https://dev.mysql.com/doc/refman/5.7/en/spatial-geojson-functions.html">1</a>]</li>
-
-
+ <li class="rt">Geohash functions [<a href="https://dev.mysql.com/doc/refman/5.7/en/spatial-geohash-functions.html">1</a> <a href="http://mysqlserverteam.com/geohash-functions/">2</a>]</li>
+ <li class="rt">GeoJSON functions [<a href="https://dev.mysql.com/doc/refman/5.7/en/spatial-geojson-functions.html">1</a> <a href="http://mysqlserverteam.com/geojson-functions/">2</a>]</li>
+ <li class="rt">Functions: ST_Distance_Sphere, ST_MakeEnvelope, ST_IsValid, ST_Validate, ST_Simplify [<a href="http://dev.mysql.com/worklog/task/?id=8034">1</a>]</li>
+ <li class="rt">ST_Buffer and ST_Distance with Boost.Geometry [<a href="http://dev.mysql.com/worklog/task/?id=7929">1</a>]</li>
 </ol>
 
 </div>
