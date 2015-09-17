@@ -181,6 +181,7 @@ title: Complete list of new features in MySQL 5.7
 <ol>
  <li class="rt">InnoDB supports indexing of spatial datatypes [<a href="https://dev.mysql.com/doc/refman/5.7/en/creating-spatial-indexes.html">1</a>]</li>
  <li class="rt">Consistent naming scheme for GIS functions [<a href="http://mysqlserverteam.com/spring-cleaning-in-the-gis-namespace/">1</a>]</li>
+ <li class="rt">GIS now based on Boost Geometry [<a href="http://mysqlserverteam.com/why-boost-geometry-in-mysql/">1</a>]</li>
  <li class="rt">Expanded spatial relation check functions [<a href="http://dev.mysql.com/worklog/task/?id=7220">1</a>]</li>
  <li class="rt">Expanded geometry set operations [<a href="http://dev.mysql.com/worklog/task/?id=7221">1</a>]</li>
  <li class="rt">Expanded spatial analysis functions [<a href="http://dev.mysql.com/worklog/task/?id=7236">1</a>]</li>
@@ -229,10 +230,11 @@ title: Complete list of new features in MySQL 5.7
 <ol>
  <li class="id">Native JSON Data Type [<a href="https://dev.mysql.com/doc/refman/5.7/en/json.html">1</a>]</li>
  <li class="id">JSON Comparator</li>
- <li class="id">3 new functions that create JSON values [<a href="https://dev.mysql.com/doc/refman/5.7/en/json-creation-functions.html">1</a>]</li>
- <li class="id">5 new functions that search JSON values [<a href="https://dev.mysql.com/doc/refman/5.7/en/json-search-functions.html">1</a>]</li>
- <li class="id">8 new functions that modify JSON values [<a href="https://dev.mysql.com/doc/refman/5.7/en/json-modification-functions.html">1</a>]</li>
- <li class="id">4 new functions that return JSON value attributes [<a href="https://dev.mysql.com/doc/refman/5.7/en/json-attribute-functions.html">1</a>]</li> 
+ 
+ <li class="id">Functions: JSON_ARRAY, JSON_MERGE, JSON_OBJECT for creating JSON values [<a href="https://dev.mysql.com/doc/refman/5.7/en/json-creation-functions.html">1</a>]</li>
+ <li class="id">Functions: JSON_CONTAINS, JSON_CONTAINS_PATH, JSON_EXTRACT, JSON_KEYS, JSON_SEARCH for searching JSON values [<a href="https://dev.mysql.com/doc/refman/5.7/en/json-search-functions.html">1</a>]</li>
+ <li class="id">Functions: JSON_ARRAY_APPEND, JSON_ARRAY_INSERT, JSON_INSERT, JSON_QUOTE, JSON_REMOVE, JSON_REPLACE, JSON_UNSET, JSON_UNQUOTE to modify JSON values [<a href="https://dev.mysql.com/doc/refman/5.7/en/json-modification-functions.html">1</a>]</li>
+ <li class="id">Functions: JSON_DEPTH, JSON_LENGTH, JSON_TYPE, JSON_VALID to return JSON value attributes [<a href="https://dev.mysql.com/doc/refman/5.7/en/json-attribute-functions.html">1</a>]</li> 
 </li>
 </ol>
 </div>
@@ -270,8 +272,8 @@ title: Complete list of new features in MySQL 5.7
 <ol>
  <li class="rt">Compiler switched to GCC on Solaris</li>
  <li class="rt">MySQL now compiles with Bison 3 (* change also backported)</li>
- <li class="rt">GIS now based on Boost Geometry [<a href="http://mysqlserverteam.com/why-boost-geometry-in-mysql/">1</a>]</li>
  <li class="rt">CMake now used to compile on all platforms</li>
+ <li class="rt">Unneeded CMake checks have been removed (and unused macros removed from source files)</li>
  <li class="rt">Build support for gcc, clang and MS Studio</li>
 </div>
 
@@ -300,6 +302,7 @@ title: Complete list of new features in MySQL 5.7
  <li class="rt">Improved scalability of meta data locking</li> <!-- lock free hash, dml fast path-->
  <li class="id">Increased control over error log verbosity</li>
  <li class="rt">Stacked Diagnostic Areas</li>
+ <li class="rt">The server now supports a "SHUTDOWN" command</li>
  <li class="nd">Removed support for custom atomics implementation</li>
  <li class="id">Removed "unique option prefix support" from server and utilities, which allowed options to be configured using multiple names.</li>
  <li class="id">Removed unsafe ALTER IGNORE TABLE functionality.  Syntax remains for compatibility</li>
