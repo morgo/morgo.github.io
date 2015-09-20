@@ -34,6 +34,7 @@ title: Complete list of new features in MySQL 5.7
  <li class="rt">Support <tt>SLAVE_TRANSACTION_RETRIES</tt> in multi-threaded slave mode [<a href="http://dev.mysql.com/worklog/task/?id=6964">1</a>]</li>
  <li class="nd">A <tt>WAIT_FOR_EXECUTED_GTID_SET</tt> function has been introduced [<a href="http://dev.mysql.com/worklog/task/?id=7796">1</a> <a href="https://dev.mysql.com/doc/refman/5.7/en/gtid-functions.html#function_wait-for-executed-gtid-set">2</a>]</li>
  <li class="rt">Optimize GTIDs for Passive Slaves [<a href="https://dev.mysql.com/doc/refman/5.7/en/replication-options-gtids.html#sysvar_executed_gtids_compression_period">1</a> <a href="http://dev.mysql.com/worklog/task/?id=6559">2</a>]</li>
+ <li class="rt">GTID Replication no longer requires <tt>log-slave-updates</tt> be enabled</li>
  <li class="id">Defaults change: <tt>binlog_format=ROW</tt></li>
  <li class="id">Defaults change: <tt>sync_binlog=1</tt></li>
  <li class="nd">Defaults change: <tt>binlog_gtid_simple_recovery=1</tt></li>
@@ -149,6 +150,7 @@ title: Complete list of new features in MySQL 5.7
  <li class="id">Server now generates SSL keys by default</li>
  <li class="id">Insecure <tt>old_password</tt> hash removed [<a href="https://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html#function_old-password">1</a>]</li>
  <li class="rt">Ability to create utility users for stored programs that can not login [<a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-no-login-plugin.html">1</a>]</li>
+ <li class="id"><tt>mysql.user.password</tt> field renamed as <tt>authentication_string</tt> to better describe its current usage.</li>
 </ol>
 </div>
 <!--  and Information Schema -->
