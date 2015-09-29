@@ -29,12 +29,15 @@ title: Complete list of new features in MySQL 5.7
  <li class="rt">Non-blocking <tt>SHOW SLAVE STATUS</tt> [<a href="https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html">1</a> <a href="http://dev.mysql.com/worklog/task/?id=6402">2</a>]</li>
  <li class="rt">Online <tt>CHANGE REPLICATION FILTER</tt> [<a href="https://dev.mysql.com/doc/refman/5.7/en/change-replication-filter.html">1</a>]</li>
  <li class="rt">Online <tt>CHANGE MASTER TO</tt> without stopping SQL thread [<a href="http://dev.mysql.com/worklog/task/?id=6120">1</a>]</li>
- <li class="nd">Improved master dump thread performance [<a href="http://my-replication-life.blogspot.ca/2013/09/dump-thread-enhancement.html">1</a> <a href="http://dev.mysql.com/worklog/task/?id=7299">2</a>]</li>
  <li class="rt">Multi-threaded slave ordered commits (Sequential Consistency) [<a href="http://dev.mysql.com/worklog/task/?id=6813">1</a>]</li>
  <li class="rt">Support <tt>SLAVE_TRANSACTION_RETRIES</tt> in multi-threaded slave mode [<a href="http://dev.mysql.com/worklog/task/?id=6964">1</a>]</li>
  <li class="nd">A <tt>WAIT_FOR_EXECUTED_GTID_SET</tt> function has been introduced [<a href="http://dev.mysql.com/worklog/task/?id=7796">1</a> <a href="https://dev.mysql.com/doc/refman/5.7/en/gtid-functions.html#function_wait-for-executed-gtid-set">2</a>]</li>
  <li class="rt">Optimize GTIDs for Passive Slaves [<a href="https://dev.mysql.com/doc/refman/5.7/en/replication-options-gtids.html#sysvar_executed_gtids_compression_period">1</a> <a href="http://dev.mysql.com/worklog/task/?id=6559">2</a>]</li>
  <li class="rt">GTID Replication no longer requires <tt>log-slave-updates</tt> be enabled</li>
+ <li class="rt">XA Support when the binary log is turned on [<a href="https://dev.mysql.com/doc/refman/5.7/en/xa-restrictions.html">1</a>]</li>
+ <li class="rt">GTIDs in the OK packet [<a href="http://dev.mysql.com/worklog/task/?id=6128">1</a>]</li>
+ <li class="rt">Better synchronization between dump and user threads when racing for the binlog <a href="http://my-replication-life.blogspot.ca/2013/09/dump-thread-enhancement.html">1</a> <a href="http://dev.mysql.com/worklog/task/?id=7299">1</a>]</li>
+ <li class="rt">Improved memory management of Binlog_sender [<a href="http://dev.mysql.com/worklog/task/?id=7299">1</a>]</li>
  <li class="id">Defaults change: <tt>binlog_format=ROW</tt></li>
  <li class="id">Defaults change: <tt>sync_binlog=1</tt></li>
  <li class="nd">Defaults change: <tt>binlog_gtid_simple_recovery=1</tt></li>
@@ -64,7 +67,6 @@ title: Complete list of new features in MySQL 5.7
  <li class="nd">Improved NUMA support [<a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_numa_interleave">1</a>]</li>
  <li class="id">General Tablespace support [<a href="http://mysqlserverteam.com/innodb-general-tablespaces-preview/">1</a>]</li>
  <li class="nd">Transparent Page Compression [<a href="http://mysqlserverteam.com/innodb-transparent-page-compression/">1</a>]</li>
-
  <li class="id"><tt>innodb_log_write_ahead_size</tt> introduced to address potential 'read-on-write' with redo logs [<a href="http://mysqlserverteam.com/mysql-5-7-improves-dml-oriented-workloads/">1</a>]</li>
  <li class="id">Fulltext indexes now support pluggable parsers [<a href="http://mysqlserverteam.com/innodb-supports-plugin-parser-in-fulltext-index/">1</a>]</li>
  <li class="id">Support for ngram and MeCab full-text parser plugins [<a href="http://mysqlserverteam.com/innodb-full-text-n-gram-parser/">1</a> <a href="http://mysqlserverteam.com/innodb-full-text-mecab-parser/">2</a>]</li>
@@ -79,9 +81,9 @@ title: Complete list of new features in MySQL 5.7
  <li class="id">Memcached API performance improvements [<a href="http://mysqlserverteam.com/mysql-5-7-3-deep-dive-into-1mil-qps-with-innodb-memcached/">1</a>]</li>
  <li class="rt">Adaptive hash scalability improvements [<a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index_parts">1</a>]</li>
 <!-- <li class="rt">Support for High Priority Transactions?</li> -->
-  <li class="rt">InnoDB now implements <tt>information_schema.files</tt> [<a href="http://dev.mysql.com/worklog/task/?id=7943">1</a>]</li>
-  <li class="id">Legacy InnoDB monitor tables have been removed or replaced by global configuration settings</li>
-  <li class="id">InnoDB default row format now configurable [<a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_default_row_format">1</a>]</li>
+ <li class="rt">InnoDB now implements <tt>information_schema.files</tt> [<a href="http://dev.mysql.com/worklog/task/?id=7943">1</a>]</li>
+ <li class="id">Legacy InnoDB monitor tables have been removed or replaced by global configuration settings</li>
+ <li class="id">InnoDB default row format now configurable [<a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_default_row_format">1</a>]</li>
  <li class="id">Defaults change: <tt>innodb_file_format=Barracuda</tt></li>
  <li class="id">Defaults change: <tt>innodb_large_prefix=1</tt></li>
  <li class="id">Defaults change: <tt>innodb_page_cleaners=4</tt></li>
@@ -163,16 +165,14 @@ title: Complete list of new features in MySQL 5.7
  <li class="rt">Table IO statistics are now batched for improved performance</li>
  <li class="id">Memory usage instrumentation</li>
  <li class="rt">Stored programs instrumentation</li>
- <li class="rt">Replication Instrumentation</li>
+ <li class="rt">Replication slave instrumentation</li>
  <li class="rt">Metadata Locking (MDL) Instrumentation</li>
- <li class="rt">Transactions</li>
- <li class="rt">Prepared Statements</li>
- <li class="rt">Stage Progress</li>
- <li class="rt">SX-lock and rw_lock</li>
+ <li class="rt">Transaction instrumentation</li>
+ <li class="rt">Prepared Statement instrumentation</li>
+ <li class="rt">Stage Progress instrumentation</li>
+ <li class="rt">SX-lock and rw_lock instrumentation</li>
  <li class="rt">Thread status and variables</li>
  <li class="id"><tt>Defaults change: performance-schema-consumer-events_statements_history=ON</tt></li>
- <li class="id"><tt>Defaults change: performance-schema-consumer-events_transactions_history=ON</tt></li>
-
 </ol>
 </div>
 
