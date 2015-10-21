@@ -112,7 +112,7 @@ title: Complete list of new features in MySQL 5.7
  <li class="zf"><tt>UNION ALL</tt> does not use a temporary table [<a href="https://dev.mysql.com/worklog/task/?id=1763">1</a> <a href="http://www.tocker.ca/2013/12/10/testing-the-union-all-optimization-in-mysql-5.7-dmr3.html
 ">2</a> <a href="http://mysqlserverteam.com/state-of-the-union/">3</a> <a href="https://dev.mysql.com/doc/refman/5.7/en/union.html">4</a>]</li>
  <li class="id">Filesort is now optimized to pack values [<a href="http://mysqlserverteam.com/filesort-optimization-in-5-7-3-pack-values-in-the-sort-buffer/">1</a>]</li>
- <li class="nd">Subqueries in <tt>FROM</tt> clause handled same as a view [<a href="https://dev.mysql.com/doc/refman/5.7/en/subquery-optimization.html#derived-table-optimization">1</a>]</li>
+ <li class="nd">Subqueries in <tt>FROM</tt> clause can now be handled same as a view (<tt>derived_merge</tt>) [<a href="https://dev.mysql.com/doc/refman/5.7/en/subquery-optimization.html#derived-table-optimization">1</a>]</li>
  <li class="rt">Queries using row value constructors are now optimized [<a href="http://dev.mysql.com/doc/refman/5.7/en/range-optimization.html#row-constructor-range-optimization">1</a> <a href="http://dev.mysql.com/worklog/task/?id=7019">2</a>]</li>
  <li class="rt">Optimizer now supports a new condition filtering optimization [<a href="http://mysqlserverteam.com/a-new-dimension-to-mysql-query-optimizations-part-1/">1</a> <a href="http://mysqlserverteam.com/a-new-dimension-to-mysql-query-optimizations-part-2/">2</a>]</li>
  <li class="id"><tt>EXPLAIN FORMAT=JSON</tt> now shows cost information [<a href="http://dev.mysql.com/worklog/task/?id=6510">1</a>]</li>
@@ -132,6 +132,7 @@ title: Complete list of new features in MySQL 5.7
  NO_AUTO_CREATE_USER,
  NO_ENGINE_SUBSTITUTION</tt>
  </li>
+ <lt class="rt">Defaults change: <tt>optimizer_switch=condition_fanout_filter=on,derived_merge=on</tt></li>
  <li class="id">Defaults change: <tt>EXTENDED</tt> and <tt>PARTITIONS</tt> keywords for <tt>EXPLAIN</tt> enabled by default</li>
 </ol>
 </div>
