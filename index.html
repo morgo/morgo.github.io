@@ -10,7 +10,7 @@ title: Complete list of new features in MySQL 5.7
 <p>There are over 150 new features in MySQL 5.7.</p>
 <p>The MySQL manual is very good, but verbose.  This is a list of new features in short bullet form.  I have tried very hard to make sure each feature is only mentioned once.  So <em>InnoDB native partitioning</em> could be mentioned under either InnoDB or partitioning.</p>
 
-<div class="download"><a class="btn" href="http://dev.mysql.com/downloads/mysql/5.7.html">Download MySQL 5.7 GA</a><br />&nbsp;&nbsp;&nbsp; or install from <a href="http://dev.mysql.com/downloads/repo/yum/">yum</a>/<a href="http://dev.mysql.com/downloads/repo/apt/">apt</a> repo.</div>
+<div class="download"><a class="btn" href="http://dev.mysql.com/downloads/mysql/5.7.html">Download MySQL 5.7 GA</a><br />&nbsp;&nbsp;&nbsp; or install from <a href="http://dev.mysql.com/downloads/repo/yum/">yum</a>, <a href="http://dev.mysql.com/downloads/repo/apt/">apt</a> or <a href="http://dev.mysql.com/downloads/repo/suse/">SUSE</a> repo.</div>
 
 </div>
 
@@ -88,7 +88,8 @@ title: Complete list of new features in MySQL 5.7
  <li class="id">Legacy InnoDB monitor tables have been removed or replaced by global configuration settings</li>
  <li class="id">InnoDB default row format now configurable [<a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_default_row_format">1</a>]</li>
  <li class="id">InnoDB now drops tables in a background thread [<a href="http://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-10.html#mysqld-5-7-10-feature">1</a>]</li>
- <li class="id">Innodb tmpdir is now configurable [<a href="http://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_tmpdir">1</a>]</li>
+ <li class="id">InnoDB <tt>tmpdir</tt> is now configurable [<a href="http://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_tmpdir">1</a>]</li>
+ <li class="id">InnoDB <tt>MERGE_THRESHOLD</tt> is now configurable [<a href="http://dev.mysql.com/doc/refman/5.7/en/index-page-merge-threshold.html">1</a>]</li>
  <li class="id">Defaults change: <tt>innodb_file_format=Barracuda</tt></li>
  <li class="id">Defaults change: <tt>innodb_large_prefix=1</tt></li>
  <li class="id">Defaults change: <tt>innodb_page_cleaners=4</tt></li>
@@ -125,6 +126,8 @@ title: Complete list of new features in MySQL 5.7
  <li class="id">Server-side query rewrite framework [<a href="http://mysqlserverteam.com/write-yourself-a-query-rewrite-plugin-part-1/">1</a>]</li>
  <li class="id"><tt>ONLY_FULL_GROUP_BY</tt> now more standards compliant [<a href="http://mysqlserverteam.com/mysql-5-7-only_full_group_by-improved-recognizing-functional-dependencies-enabled-by-default/">1</a>]</li>
  <li class="id">Support for gb18030 character set [<a href="https://dev.mysql.com/worklog/task/?id=4024">1</a>]</li>
+ <li class="id">Improvements to Dynamic Range access [<a href="http://mysqlserverteam.com/dynamic-range-access-and-recent-changes/">1</a>]</li>
+ <li class="id">Memory used by the range optimizer is now configurable [<a href="http://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size">1</a>]</li>
  <li class="id">Defaults change: <tt>internal_tmp_disk_storage_engine=INNODB</tt> [<a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_internal_tmp_disk_storage_engine">1</a>]</li>
  <li class="id">Defaults change: <tt>eq_range_index_dive_limit=200</tt></li>
  <li class="id">Defaults change: <tt>sql_mode=ONLY_FULL_GROUP_BY,
@@ -247,6 +250,7 @@ title: Complete list of new features in MySQL 5.7
  <li class="id">Native JSON Data Type [<a href="https://dev.mysql.com/doc/refman/5.7/en/json.html">1</a>]</li>
  <li class="id">JSON Comparator</li>
  <li class="id">Short-hand JSON_EXTRACT operator (field-&gt;"json_path") [<a href="https://dev.mysql.com/doc/refman/5.7/en/json-search-functions.html#operator_json-column-path">1</a>]</li> 
+ <li class="id">New Document Store (5.7.12)</li>
  <li class="id">Functions: JSON_ARRAY, JSON_MERGE, JSON_OBJECT for creating JSON values [<a href="https://dev.mysql.com/doc/refman/5.7/en/json-creation-functions.html">1</a>]</li>
  <li class="id">Functions: JSON_CONTAINS, JSON_CONTAINS_PATH, JSON_EXTRACT, JSON_KEYS, JSON_SEARCH for searching JSON values [<a href="https://dev.mysql.com/doc/refman/5.7/en/json-search-functions.html">1</a>]</li>
  <li class="id">Functions: JSON_ARRAY_APPEND, JSON_ARRAY_INSERT, JSON_INSERT, JSON_QUOTE, JSON_REMOVE, JSON_REPLACE, JSON_UNSET, JSON_UNQUOTE to modify JSON values [<a href="https://dev.mysql.com/doc/refman/5.7/en/json-modification-functions.html">1</a>]</li>
@@ -271,6 +275,7 @@ title: Complete list of new features in MySQL 5.7
  <li class="id">Many Perl command line clients converted to C++</li>
  <li class="rt">Client Side Protocol Tracing</li>
  <li class="rt">Client API method to reset connection</li>
+ <li class="id">New MySQL Shell (<tt>mysqlsh</tt>) (separate download)</li>
 </ol>
 </div>
 
@@ -329,7 +334,7 @@ title: Complete list of new features in MySQL 5.7
  <li class="id">Removed of outdated sql-bench scripts in distributions</li>
  <li class="id">Removal of ambiguous YEAR(2) datatype</li>
  <li class="rt">Defaults change: <tt>log_warnings=2</tt></li>
- <li class="id">Defaults change: <tt>table_open_cache_instances=1</tt></li>
+ <li class="id">Defaults change: <tt>table_open_cache_instances=16</tt></li>
 </li>
 
 </ol>
